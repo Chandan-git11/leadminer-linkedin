@@ -1,0 +1,274 @@
+2026-06-02 15:39:31 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: INFO
+2026-06-02 15:39:35 | INFO     | browser:initialize:31 - Browser initialized (headless=True)
+2026-06-02 15:39:35 | INFO     | browser:initialize:46 - Page created successfully
+2026-06-02 15:40:05 | ERROR    | browser:goto:106 - Failed to navigate to https://www.linkedin.com/feed/: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.linkedin.com/feed/", waiting until "networkidle"
+
+2026-06-02 15:40:05 | WARNING  | authenticator:_is_logged_in:98 - Failed to check login status: Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.linkedin.com/feed/", waiting until "networkidle"
+
+2026-06-02 15:40:05 | INFO     | authenticator:login:41 - Attempting to login to LinkedIn
+2026-06-02 15:40:07 | INFO     | browser:goto:104 - Navigated to https://www.linkedin.com/login
+2026-06-02 15:40:39 | ERROR    | authenticator:login:77 - Login failed: Page.fill: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("input[aria-label=\"Email or phone number\"]")
+
+2026-06-02 15:40:39 | ERROR    | __main__:run:52 - Failed to authenticate to LinkedIn
+2026-06-02 15:40:41 | INFO     | browser:close:63 - Browser closed successfully
+2026-06-02 15:40:41 | ERROR    | __main__:extract:171 - Extraction failed
+2026-06-03 09:50:54 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: INFO
+2026-06-03 09:50:58 | INFO     | browser:initialize:31 - Browser initialized (headless=True)
+2026-06-03 09:50:58 | INFO     | browser:initialize:46 - Page created successfully
+2026-06-03 09:51:07 | DEBUG    | authenticator:_is_logged_in:156 - Login status check URL: https://www.linkedin.com/login/?session_redirect=https%3a%2f%2fwww.linkedin.com%2ffeed%2f
+2026-06-03 09:51:07 | INFO     | authenticator:login:48 - Opening LinkedIn login page
+2026-06-03 09:51:08 | INFO     | authenticator:login:56 - Waiting for login form
+2026-06-03 09:52:08 | ERROR    | authenticator:login:129 - Login exception: Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator("#username") to be visible
+
+Traceback (most recent call last):
+
+  File "C:\Users\LOQ\Desktop\LinkedIn Comment Lead Extractor\main.py", line 223, in <module>
+    cli()
+    └ <Group cli>
+
+  File "C:\Python313\Lib\site-packages\click\core.py", line 1442, in __call__
+    return self.main(*args, **kwargs)
+           │    │     │       └ {}
+           │    │     └ ()
+           │    └ <function Command.main at 0x00000209DFF3DF80>
+           └ <Group cli>
+  File "C:\Python313\Lib\site-packages\click\core.py", line 1363, in main
+    rv = self.invoke(ctx)
+         │    │      └ <click.core.Context object at 0x00000209F942F770>
+         │    └ <function Group.invoke at 0x00000209DFF3EE80>
+         └ <Group cli>
+  File "C:\Python313\Lib\site-packages\click\core.py", line 1830, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+           │               │       │       │      └ <click.core.Context object at 0x00000209F950E990>
+           │               │       │       └ <function Command.invoke at 0x00000209DFF3DC60>
+           │               │       └ <Command extract>
+           │               └ <click.core.Context object at 0x00000209F950E990>
+           └ <function Group.invoke.<locals>._process_result at 0x00000209F9578180>
+  File "C:\Python313\Lib\site-packages\click\core.py", line 1226, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+           │   │      │    │           │   └ {'url': 'https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440...
+           │   │      │    │           └ <click.core.Context object at 0x00000209F950E990>
+           │   │      │    └ <function extract at 0x00000209F9578220>
+           │   │      └ <Command extract>
+           │   └ <function Context.invoke at 0x00000209DFF3CEA0>
+           └ <click.core.Context object at 0x00000209F950E990>
+  File "C:\Python313\Lib\site-packages\click\core.py", line 794, in invoke
+    return callback(*args, **kwargs)
+           │         │       └ {'url': 'https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440...
+           │         └ ()
+           └ <function extract at 0x00000209F9578220>
+
+  File "C:\Users\LOQ\Desktop\LinkedIn Comment Lead Extractor\main.py", line 158, in extract
+    success = LinkedInExtractorApp.run_sync(
+              │                    └ <staticmethod(<function LinkedInExtractorApp.run_sync at 0x00000209F9573D80>)>
+              └ <class '__main__.LinkedInExtractorApp'>
+
+  File "C:\Users\LOQ\Desktop\LinkedIn Comment Lead Extractor\main.py", line 100, in run_sync
+    return asyncio.run(
+           │       └ <function run at 0x00000209DD9E1DA0>
+           └ <module 'asyncio' from 'C:\\Python313\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Python313\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object LinkedInExtractorApp.run at 0x00000209E00546D0>
+           │      └ <function Runner.run at 0x00000209DFD84220>
+           └ <asyncio.runners.Runner object at 0x00000209E0054830>
+  File "C:\Python313\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task pending name='Task-1' coro=<LinkedInExtractorApp.run() running at C:\Users\LOQ\Desktop\LinkedIn Comment Lead Extractor\...
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x00000209DFD81DA0>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x00000209E0054830>
+  File "C:\Python313\Lib\asyncio\base_events.py", line 712, in run_until_complete
+    self.run_forever()
+    │    └ <function BaseEventLoop.run_forever at 0x00000209DFD81D00>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Python313\Lib\asyncio\base_events.py", line 683, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x00000209DFD83B00>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Python313\Lib\asyncio\base_events.py", line 2050, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x00000209DF89ECA0>
+    └ <Handle Task.task_wakeup()>
+  File "C:\Python313\Lib\asyncio\events.py", line 89, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle Task.task_wakeup()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle Task.task_wakeup()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle Task.task_wakeup()>
+
+  File "C:\Users\LOQ\Desktop\LinkedIn Comment Lead Extractor\main.py", line 51, in run
+    if not await authenticator.login(email, password, force_login):
+                 │             │     │      │         └ False
+                 │             │     │      └ 'Chandan4343@#'
+                 │             │     └ 'chandanmourya441@gmail.com'
+                 │             └ <function LinkedInAuthenticator.login at 0x00000209E0B705E0>
+                 └ <authenticator.LinkedInAuthenticator object at 0x00000209F952BCB0>
+
+> File "C:\Users\LOQ\Desktop\LinkedIn Comment Lead Extractor\src\authenticator.py", line 58, in login
+    await self.browser_manager.page.wait_for_selector(
+          │    │               │    └ <function Page.wait_for_selector at 0x00000209E0B35300>
+          │    │               └ <Page url='https://www.linkedin.com/login/'>
+          │    └ <browser.BrowserManager object at 0x00000209F95282F0>
+          └ <authenticator.LinkedInAuthenticator object at 0x00000209F952BCB0>
+
+  File "C:\Python313\Lib\site-packages\playwright\async_api\_generated.py", line 8795, in wait_for_selector
+    await self._impl_obj.wait_for_selector(
+          │    │         └ <function Page.wait_for_selector at 0x00000209E0A9D940>
+          │    └ <Page url='https://www.linkedin.com/login/'>
+          └ <Page url='https://www.linkedin.com/login/'>
+  File "C:\Python313\Lib\site-packages\playwright\_impl\_page.py", line 424, in wait_for_selector
+    return await self._main_frame.wait_for_selector(**locals_to_params(locals()))
+                 │    │           │                   └ <function locals_to_params at 0x00000209E01AADE0>
+                 │    │           └ <function Frame.wait_for_selector at 0x00000209E0A90040>
+                 │    └ <Frame name= url='https://www.linkedin.com/login/'>
+                 └ <Page url='https://www.linkedin.com/login/'>
+  File "C:\Python313\Lib\site-packages\playwright\_impl\_frame.py", line 372, in wait_for_selector
+    await self._channel.send(
+          │    │        └ <function Channel.send at 0x00000209E01ABC40>
+          │    └ <playwright._impl._connection.Channel object at 0x00000209F958B4D0>
+          └ <Frame name= url='https://www.linkedin.com/login/'>
+  File "C:\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+                 │    │           └ <function Connection.wrap_api_call at 0x00000209E09D1C60>
+                 │    └ <playwright._impl._connection.Connection object at 0x00000209F95286E0>
+                 └ <playwright._impl._connection.Channel object at 0x00000209F958B4D0>
+  File "C:\Python313\Lib\site-packages\playwright\_impl\_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+          │                       └ {'frames': [{'file': 'C:\\Users\\LOQ\\Desktop\\LinkedIn Comment Lead Extractor\\src\\authenticator.py', 'line': 58, 'column':...
+          └ <function rewrite_error at 0x00000209E006A0C0>
+
+playwright._impl._errors.TimeoutError: Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator("#username") to be visible
+
+2026-06-03 09:52:08 | ERROR    | __main__:run:52 - Failed to authenticate to LinkedIn
+2026-06-03 09:52:10 | INFO     | browser:close:63 - Browser closed successfully
+2026-06-03 09:52:10 | ERROR    | __main__:extract:171 - Extraction failed
+2026-06-03 11:09:58 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: DEBUG
+2026-06-03 11:09:59 | INFO     | browser:initialize:43 - Browser initialized
+2026-06-03 11:10:00 | INFO     | browser:initialize:72 - Page created successfully
+2026-06-03 11:10:07 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/feed/
+2026-06-03 11:10:09 | DEBUG    | authenticator:_is_logged_in:91 - User is logged in
+2026-06-03 11:10:09 | INFO     | authenticator:login:37 - Already logged in to LinkedIn
+2026-06-03 11:10:09 | INFO     | extractor:extract_comments:70 - Starting comment extraction from https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-03 11:10:10 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-03 11:10:27 | INFO     | extractor:_load_all_comments:113 - Reached end of comments
+2026-06-03 11:10:28 | INFO     | extractor:_extract_comment_data:132 - Found 0 comments
+2026-06-03 11:10:28 | INFO     | extractor:extract_comments:82 - Successfully extracted 0 comments
+2026-06-03 11:10:28 | WARNING  | __main__:run:60 - No comments extracted from post
+2026-06-03 11:10:28 | INFO     | browser:close:96 - Browser closed successfully
+2026-06-03 11:10:28 | ERROR    | __main__:extract:171 - Extraction failed
+2026-06-03 12:23:35 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: DEBUG
+2026-06-03 12:23:42 | INFO     | browser:initialize:43 - Browser initialized
+2026-06-03 12:23:42 | INFO     | browser:initialize:72 - Page created successfully
+2026-06-03 12:23:47 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/feed/
+2026-06-03 12:23:49 | DEBUG    | authenticator:_is_logged_in:91 - User is logged in
+2026-06-03 12:23:49 | INFO     | authenticator:login:37 - Already logged in to LinkedIn
+2026-06-03 12:23:49 | INFO     | extractor:extract_comments:70 - Starting comment extraction from https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-03 12:23:51 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-03 12:24:08 | INFO     | extractor:_load_all_comments:113 - Reached end of comments
+2026-06-03 12:24:08 | INFO     | extractor:_extract_comment_data:136 - Saved page source to linkedin_debug.html
+2026-06-03 12:24:09 | INFO     | extractor:_extract_comment_data:145 - Saved screenshot to comments_page.png
+2026-06-03 12:24:09 | INFO     | extractor:extract_comments:82 - Successfully extracted 0 comments
+2026-06-03 12:24:09 | WARNING  | __main__:run:60 - No comments extracted from post
+2026-06-03 12:24:10 | INFO     | browser:close:96 - Browser closed successfully
+2026-06-03 12:24:10 | ERROR    | __main__:extract:171 - Extraction failed
+2026-06-03 12:45:17 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: DEBUG
+2026-06-03 12:45:18 | INFO     | browser:initialize:43 - Browser initialized
+2026-06-03 12:45:19 | INFO     | browser:initialize:72 - Page created successfully
+2026-06-03 12:45:49 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/feed/
+2026-06-03 12:45:51 | DEBUG    | authenticator:_is_logged_in:91 - User is logged in
+2026-06-03 12:45:51 | INFO     | authenticator:login:37 - Already logged in to LinkedIn
+2026-06-03 12:45:51 | INFO     | extractor:extract_comments:70 - Starting comment extraction from https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-03 12:45:54 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-03 12:45:59 | INFO     | extractor:_load_all_comments:93 - Loading comments...
+2026-06-03 12:46:06 | INFO     | extractor:_load_all_comments:103 - Scroll 1/10 completed
+2026-06-03 12:46:08 | INFO     | extractor:_load_all_comments:103 - Scroll 2/10 completed
+2026-06-03 12:46:10 | INFO     | extractor:_load_all_comments:103 - Scroll 3/10 completed
+2026-06-03 12:46:12 | INFO     | extractor:_load_all_comments:103 - Scroll 4/10 completed
+2026-06-03 12:46:14 | INFO     | extractor:_load_all_comments:103 - Scroll 5/10 completed
+2026-06-03 12:46:16 | INFO     | extractor:_load_all_comments:103 - Scroll 6/10 completed
+2026-06-03 12:46:18 | INFO     | extractor:_load_all_comments:103 - Scroll 7/10 completed
+2026-06-03 12:46:20 | INFO     | extractor:_load_all_comments:103 - Scroll 8/10 completed
+2026-06-03 12:46:22 | INFO     | extractor:_load_all_comments:103 - Scroll 9/10 completed
+2026-06-03 12:46:24 | INFO     | extractor:_load_all_comments:103 - Scroll 10/10 completed
+2026-06-03 12:46:24 | INFO     | extractor:_load_all_comments:107 - Finished scrolling
+2026-06-03 12:46:24 | INFO     | extractor:_extract_comment_data:126 - Found 10 comment sections
+2026-06-03 12:46:24 | INFO     | extractor:_extract_comment_data:193 - Extracted 10 comments
+2026-06-03 12:46:24 | INFO     | extractor:extract_comments:82 - Successfully extracted 10 comments
+2026-06-03 12:46:24 | INFO     | utils:remove_duplicates:83 - Removed 0 duplicates
+2026-06-03 12:46:24 | INFO     | extractor:remove_duplicates:266 - Removed 0 duplicate comments
+2026-06-03 12:46:24 | INFO     | exporters:export:40 - Exported 10 records to CSV: output\linkedin_comments_20260603_124624.csv
+2026-06-03 12:46:24 | INFO     | __main__:run:78 - Export results: {'csv': True}
+2026-06-03 12:46:25 | INFO     | browser:close:96 - Browser closed successfully
+2026-06-03 12:46:25 | INFO     | __main__:extract:167 - Extraction completed successfully
+2026-06-06 01:18:29 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: DEBUG
+2026-06-06 01:18:30 | INFO     | browser:initialize:43 - Browser initialized
+2026-06-06 01:18:30 | INFO     | browser:initialize:72 - Page created successfully
+2026-06-06 01:18:35 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/feed/
+2026-06-06 01:18:37 | DEBUG    | authenticator:_is_logged_in:91 - User is logged in
+2026-06-06 01:18:37 | INFO     | authenticator:login:37 - Already logged in to LinkedIn
+2026-06-06 01:18:37 | INFO     | extractor:extract_comments:67 - Starting comment extraction from https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-06 01:18:38 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-06 01:18:43 | INFO     | extractor:_load_all_comments:85 - Loading comments...
+2026-06-06 01:18:51 | INFO     | extractor:_load_all_comments:110 - Scroll 1/10 completed
+2026-06-06 01:18:53 | INFO     | extractor:_load_all_comments:110 - Scroll 2/10 completed
+2026-06-06 01:18:55 | INFO     | extractor:_load_all_comments:110 - Scroll 3/10 completed
+2026-06-06 01:18:57 | INFO     | extractor:_load_all_comments:110 - Scroll 4/10 completed
+2026-06-06 01:18:59 | INFO     | extractor:_load_all_comments:110 - Scroll 5/10 completed
+2026-06-06 01:19:01 | INFO     | extractor:_load_all_comments:110 - Scroll 6/10 completed
+2026-06-06 01:19:03 | INFO     | extractor:_load_all_comments:110 - Scroll 7/10 completed
+2026-06-06 01:19:05 | INFO     | extractor:_load_all_comments:110 - Scroll 8/10 completed
+2026-06-06 01:19:07 | INFO     | extractor:_load_all_comments:110 - Scroll 9/10 completed
+2026-06-06 01:19:09 | INFO     | extractor:_load_all_comments:110 - Scroll 10/10 completed
+2026-06-06 01:19:11 | INFO     | extractor:_load_all_comments:141 - Finished scrolling
+2026-06-06 01:19:11 | INFO     | extractor:_extract_comment_data:153 - Found 10 comment sections
+2026-06-06 01:19:11 | INFO     | extractor:_extract_comment_data:190 - Extracted 10 comments
+2026-06-06 01:19:11 | INFO     | extractor:extract_comments:75 - Successfully extracted 10 comments
+2026-06-06 01:19:11 | INFO     | utils:remove_duplicates:83 - Removed 0 duplicates
+2026-06-06 01:19:11 | INFO     | extractor:remove_duplicates:244 - Removed 0 duplicate comments
+2026-06-06 01:19:11 | INFO     | exporters:export:40 - Exported 10 records to CSV: output\linkedin_comments_20260606_011911.csv
+2026-06-06 01:19:11 | INFO     | __main__:run:78 - Export results: {'csv': True}
+2026-06-06 01:19:12 | INFO     | browser:close:96 - Browser closed successfully
+2026-06-06 01:19:12 | INFO     | __main__:extract:167 - Extraction completed successfully
+2026-06-08 13:43:54 | INFO     | logging_config:setup_logging:35 - Logging initialized. Log level: DEBUG
+2026-06-08 13:43:55 | INFO     | browser:initialize:43 - Browser initialized
+2026-06-08 13:43:55 | INFO     | browser:initialize:72 - Page created successfully
+2026-06-08 13:43:58 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/feed/
+2026-06-08 13:44:00 | DEBUG    | authenticator:_is_logged_in:91 - User is logged in
+2026-06-08 13:44:00 | INFO     | authenticator:login:37 - Already logged in to LinkedIn
+2026-06-08 13:44:00 | INFO     | extractor:extract_comments:67 - Starting comment extraction from https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-08 13:44:01 | INFO     | browser:goto:166 - Navigated to https://www.linkedin.com/posts/jia-singla-50882b33a_fullstackdevelopment-reactjs-nodejs-activity-7465036195954237440-Axuz
+2026-06-08 13:44:06 | INFO     | extractor:_load_all_comments:85 - Loading comments...
+2026-06-08 13:44:14 | INFO     | extractor:_load_all_comments:110 - Scroll 1/10 completed
+2026-06-08 13:44:16 | INFO     | extractor:_load_all_comments:110 - Scroll 2/10 completed
+2026-06-08 13:44:18 | INFO     | extractor:_load_all_comments:110 - Scroll 3/10 completed
+2026-06-08 13:44:20 | INFO     | extractor:_load_all_comments:110 - Scroll 4/10 completed
+2026-06-08 13:44:22 | INFO     | extractor:_load_all_comments:110 - Scroll 5/10 completed
+2026-06-08 13:44:24 | INFO     | extractor:_load_all_comments:110 - Scroll 6/10 completed
+2026-06-08 13:44:26 | INFO     | extractor:_load_all_comments:110 - Scroll 7/10 completed
+2026-06-08 13:44:28 | INFO     | extractor:_load_all_comments:110 - Scroll 8/10 completed
+2026-06-08 13:44:30 | INFO     | extractor:_load_all_comments:110 - Scroll 9/10 completed
+2026-06-08 13:44:32 | INFO     | extractor:_load_all_comments:110 - Scroll 10/10 completed
+2026-06-08 13:44:34 | INFO     | extractor:_load_all_comments:141 - Finished scrolling
+2026-06-08 13:44:34 | INFO     | extractor:_extract_comment_data:153 - Found 10 comment sections
+2026-06-08 13:44:34 | INFO     | extractor:_extract_comment_data:190 - Extracted 10 comments
+2026-06-08 13:44:34 | INFO     | extractor:extract_comments:75 - Successfully extracted 10 comments
+2026-06-08 13:44:34 | INFO     | utils:remove_duplicates:83 - Removed 0 duplicates
+2026-06-08 13:44:34 | INFO     | extractor:remove_duplicates:244 - Removed 0 duplicate comments
+2026-06-08 13:44:34 | INFO     | exporters:export:40 - Exported 10 records to CSV: output\linkedin_comments_20260608_134434.csv
+2026-06-08 13:44:34 | INFO     | __main__:run:78 - Export results: {'csv': True}
+2026-06-08 13:44:35 | INFO     | browser:close:96 - Browser closed successfully
+2026-06-08 13:44:35 | INFO     | __main__:extract:167 - Extraction completed successfully
